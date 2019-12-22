@@ -1,5 +1,5 @@
 
-    var wordBank = ["PHYSICS", "QUASAR", "BLACK HOLE", "MATTER", "ENERGY", "QUARK", "QUANTUM", "STAR", "GALAXY"];
+    var wordBank = ["PHYSICS", "QUASAR", "MATTER", "ENERGY", "QUARK", "QUANTUM", "STAR", "GALAXY"];
     var life = 10;
     var guess;
     var wordArray;
@@ -7,15 +7,18 @@
     var wordLength;
     var word;
     var discard = [];
-
+   
    
 window.onload = function start() {
     if (life = 10) {
     var randomIndex = Math.floor(Math.random() * wordBank.length);
     word = wordBank[randomIndex];
     console.log(word);
-
-    wordLength = "_".repeat(word.length).split("");
+    wordArray = word.split("");
+    wordLength = [];
+    for (var i = wordLength.length; i < wordArray.length; i++) {
+        wordLength.push("_");
+    }
   };
 
     
@@ -30,15 +33,14 @@ for (var i = 65; i < 91; i++) {
     };
     
     console.log("thisis: " + wordLength)
+    
 };
 
 
 
 function letterCheck() {
     console.log("2nd round: " + word)
-   var str = word;
-   var low = str.toLowerCase();
-   wordArray = low.split("");
+  
    console.log(wordArray);
     let idx = wordArray.indexOf(guess);
     console.log(idx);
@@ -46,13 +48,15 @@ function letterCheck() {
 if (idx === -1) {
     life--
     document.getElementById("guesses").innerHTML = life;
-    
+    var str = word;
+    var low = str.toLowerCase();
+    wordArray = low.split("");
     discard.push(guess)
     document.getElementById("lettersG").innerHTML = discard;
     
 }
 while (idx != -1) {
-   location.push(idx);
+   wordLength.push(idx);
     idx = arraylow.indexOf(guess, idx + 1);
     
 
