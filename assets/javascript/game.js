@@ -17,6 +17,7 @@ window.onload = function start() {
     wordArray = word.split("");
     for (var i = wordLength.length; i < wordArray.length; i++) {
         wordLength.push("_");
+        
     }
   };
 
@@ -52,11 +53,14 @@ if (idx === -1) {
     document.getElementById("lettersG").innerHTML = discard;
     
 }
-else {
+while (idx != -1) {
     
    wordLength[idx] = guess;
-   document.getElementById("wordMain").innerHTML = wordLength;
    
+   document.getElementById("wordMain").innerHTML = wordLength;
+   idx = wordArray.indexOf(guess, idx + 1);
+   document.getElementById("wordMain").innerHTML = wordLength;
+
 } ;  
 
 
@@ -67,27 +71,3 @@ else {
 };
 
 
-/*document.onkeyup = function(event) {
-          
-    console.log(event.key); 
-
-    var guess = event.key;
-
-    while (lettersLeft > 0) {
-
-        document.onkeyup = function(event) {
-          
-            console.log(event.key); 
-        
-            var guess = event.key;
-    
-        for (var j = 0; j < word.length; j++) {
-            if (word[j] === guess) {
-              answer[j] = guess; 
-              lettersLeft--;
-            };
-        };
-    };
-};
-
-}; */
