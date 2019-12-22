@@ -16,6 +16,7 @@ body {
 }
 #wordMain {
     text-decoration: none;
+    color: rgb(161, 9, 9);
     
 }
 
@@ -32,3 +33,4 @@ body {
 .state {
     padding-top: 3%;
 }
+

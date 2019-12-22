@@ -1,6 +1,8 @@
 
     var wordBank = ["PHYSICS", "QUASAR", "MATTER", "ENERGY", "QUARK", "QUANTUM", "STAR", "GALAXY", "BEAKER", "EQUATION", "LAB", "CHEMICAL", "ELEMENT", "PLANET", "CHEMISTRY", "MATHEMATICS", "ATOMS", "PARTICLE", "REACTION"];
     var life = 10;
+    var wins = 0;
+    var losses = 0;
     var guess;
     var wordArray;
     var location;
@@ -8,10 +10,14 @@
     var word;
     var discard = [];
     var alpha = "abcdefghijklmnopqrstuvwxyz"
-
-  
-window.onload = function start() {
     
+   
+       
+    
+  
+   document.onkeyup = function start() {
+     
+        
     var randomIndex = Math.floor(Math.random() * wordBank.length);
     word = wordBank[randomIndex];
     console.log(word);
@@ -21,10 +27,8 @@ window.onload = function start() {
         var main = wordLength.join(" ")
     
 document.getElementById("wordMain").innerHTML = main;
+document.getElementById("wordMain").style.color = "lavender";
     }
-
-
-
 
 
 
@@ -82,17 +86,20 @@ document.getElementById("wordMain").innerHTML = main;
 }   
 
 
-
 var wincheck = word.toLowerCase();
 
 console.log("wc" + wincheck);
 console.log("wc2 " + wordLength);
 
 if (wincheck === wordLength.join("")) {
+    wins++ 
+    document.getElementById("wins").innerHTML = wins;
     win()
 }
 
 if (life === 0) {
+    losses++
+    document.getElementById("losses").innerHTML = losses;
     loss()
 }
 
@@ -100,7 +107,7 @@ function win() {
     document.getElementById("one").style.display = "none";
     
     document.getElementById("two").style.display = "block";
-  
+    document.addEventListener("click", restart);
    
     
 }
@@ -110,14 +117,50 @@ function loss() {
     document.getElementById("one").style.display = "none";
     
     document.getElementById("three").style.display = "block";
-
+    document.addEventListener("click", restart);
 }
 
   
-};};
+};
 function restart() {
-    window.location.reload();
+    wordLength = [];
+    discard = [];
+    document.getElementById("lettersG").innerHTML = discard;
+    life = 10;
+    document.getElementById("guesses").innerHTML = life;
+    document.getElementById("one").style.display = "inherit";
+    document.getElementById("two").style.display = "none";
+    document.getElementById("three").style.display = "none";
+
+    var randomIndex = Math.floor(Math.random() * wordBank.length);
+    word = wordBank[randomIndex];
+    console.log(word);
+    wordArray = word.split("");
+    for (var i = wordLength.length; i < wordArray.length; i++) {
+        wordLength.push("_");
+        var main = wordLength.join(" ")
+    
+document.getElementById("wordMain").innerHTML = main;
+    }
+
+
+
+ var alphaArray = alpha.split("");
+ 
+
+    document.onkeyup = function(event) {
+        
+        guess = event.key;
+        console.log(guess);
+
+        let ind = alphaArray.indexOf(guess);
+
+        if (ind != -1) {
+            letterCheck();
+        }
+        
+        };
    
 };
-   
+   };
 

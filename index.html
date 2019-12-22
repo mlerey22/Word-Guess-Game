@@ -16,17 +16,24 @@
         <h1 id="head">Discover The Word</h1>
         
     </div>
-
-    <div class="row">
-        <div class="col-md-4" class="card ss">
-            <div class="card-body" id="lett">
-                Failed Attempts: <br><span id="lettersG">0</span>
+<div class="row" class="card ss">
+            <div class="card-body" id="guesse">
+                Positive Results: <span id="wins">0</span> <br>
+                Failed Attempts: <span id="losses">0</span> 
             </div>
         </div>
+    <div class="row">
+       
+         <div class="col-md-4" class="card ss">
+            <div class="card-body" id="lett">
+                Discarded Variables: <br><span id="lettersG">0</span>
+            </div>
+        </div>
+        
 
         <div class="col-md-4" class="card xx">
             <div class="card-body" id="mainWord">
-                Proven Hypotheses <br>  <span id="wordMain"></span>
+                Proven Hypotheses <br>  <span id="wordMain">Press Any Key To Start</span>
             </div>
         </div>
 
@@ -53,7 +60,7 @@
     <div class="container justify-content-center state" id="two">
         <img src="assets/images/win.jpg" alt="win" width = 90%;>
         <h1>Success!!!</h1>
-        <button onclick="restart()">Restart</button>
+        <button >Restart</button>
     </div>
     <div class="container justify-content-center state" id="three">
         <img src="assets/images/loss.jpg" alt="win" width = 90%;>
