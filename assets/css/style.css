@@ -2,7 +2,8 @@ body {
     text-align: center;
     font-family: 'Permanent Marker', cursive;
     text-decoration: underline;
-    background: url("assets/images/space.jpg");
+    background: url("../images/space.jpg");
+    color: lavender;
 }
 
 .card {

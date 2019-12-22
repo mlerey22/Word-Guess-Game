@@ -1,50 +1,95 @@
 
     var wordBank = ["PHYSICS", "QUASAR", "BLACK HOLE", "MATTER", "ENERGY", "QUARK", "QUANTUM", "STAR", "GALAXY"];
-    var life = 6;
-    var answer;
+    var life = 10;
     var guess;
-   
+    var wordArray;
+    var location;
+    var wordLength;
+    var word;
+    var discard = [];
 
+   
+window.onload = function start() {
+    if (life = 10) {
     var randomIndex = Math.floor(Math.random() * wordBank.length);
-    var word = wordBank[randomIndex];
+    word = wordBank[randomIndex];
     console.log(word);
 
- 
-        var guess = document.getElementById("lettersG");
-  
-        // Next, we give JavaScript a function to execute when onkeyup event fires.
-        document.onkeyup = function(event) {
-          guess.textContent = event.key;
-        };
+    wordLength = "_".repeat(word.length).split("");
+  };
+
     
-      
-    var answer = [];
-    for (var i = 0; i< word.length; i++) {
-        answer[i] = "_";
-       
-    var lettersLeft = word.length;
-    }
+document.getElementById("wordMain").innerHTML = wordLength;
+for (var i = 65; i < 91; i++) {
 
-    document.getElementById("word").innerHTML = answer
+    document.onkeyup = function(event) {
+        guess = event.key;
+        console.log(guess);
+        letterCheck();
 
-    /* while (lettersLeft > 0) {
-        // game code
-        // take guess
-        // show guesses left
-        // update answer array and letters left
+    };
+    
+    console.log("thisis: " + wordLength)
+};
+
+
+
+function letterCheck() {
+    console.log("2nd round: " + word)
+   var str = word;
+   var low = str.toLowerCase();
+   wordArray = low.split("");
+   console.log(wordArray);
+    let idx = wordArray.indexOf(guess);
+    console.log(idx);
+
+if (idx === -1) {
+    life--
+    document.getElementById("guesses").innerHTML = life;
+    
+    discard.push(guess)
+    document.getElementById("lettersG").innerHTML = discard;
+    
+}
+while (idx != -1) {
+   location.push(idx);
+    idx = arraylow.indexOf(guess, idx + 1);
+    
+
+ for (let i = 0; i < location.length; i++) {
+            wordLength[location[i]] = wordArray[location[i]];
+            document.getElementById("wordMain").innerHTML = guess;};
+} ;  
+
+
+};
+
+
+  
+};
+
+
+/*document.onkeyup = function(event) {
+          
+    console.log(event.key); 
+
+    var guess = event.key;
+
+    while (lettersLeft > 0) {
+
+        document.onkeyup = function(event) {
+          
+            console.log(event.key); 
+        
+            var guess = event.key;
+    
         for (var j = 0; j < word.length; j++) {
             if (word[j] === guess) {
-              answerArray[j] = guess; remainingLetters--;
-            }
-   } 
+              answer[j] = guess; 
+              lettersLeft--;
+            };
+        };
+    };
+};
+
 }; */
-
- 
-/* var guess = document.getElementById("lettersG");
-
-      // Next, we give JavaScript a function to execute when onkeyup event fires.
-      document.onkeyup = function(event) {
-        guess.textContent = event.key;
-      };*/
-
-     
