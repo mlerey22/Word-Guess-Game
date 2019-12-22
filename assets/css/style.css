@@ -14,7 +14,18 @@ body {
    
     
 }
-.xx {
+#wordMain {
     text-decoration: none;
+    
+}
+
+#two {
+    display: none;
+    max-width:500px;
+    
+}
+#three {
+    display: none;
+    max-width:500px;
     
 }
