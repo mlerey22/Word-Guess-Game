@@ -7,7 +7,7 @@
     var wordLength = [];
     var word;
     var discard = [];
-   
+    var alpha = "abcdefghijklmnopqrstuvwxyz"
    
 window.onload = function start() {
     if (life = 10) {
@@ -20,22 +20,27 @@ window.onload = function start() {
         
     }
   };
-
+var main = wordLength.join(" ")
     
-document.getElementById("wordMain").innerHTML = wordLength;
+document.getElementById("wordMain").innerHTML = main;
 
+ alphaArray = alpha.split("");
+ 
 
     document.onkeyup = function(event) {
+        
         guess = event.key;
         console.log(guess);
-        letterCheck();
 
-    };
+        let ind = alphaArray.indexOf(guess);
+
+        if (ind != -1) {
+            letterCheck();
+        }
+        
+        };
     
-   
     
-
-
 
 
 function letterCheck() {
@@ -57,9 +62,11 @@ while (idx != -1) {
     
    wordLength[idx] = guess;
    
-   document.getElementById("wordMain").innerHTML = wordLength;
+  
    idx = wordArray.indexOf(guess, idx + 1);
-   document.getElementById("wordMain").innerHTML = wordLength;
+   var main = wordLength.join(" ")
+    
+document.getElementById("wordMain").innerHTML = main;
 
 } ;  
 
