@@ -1,0 +1,15 @@
+body {
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+    text-decoration: underline;
+    background: url("assets/images/space.jpg");
+}
+
+.card {
+    border-style: solid;
+    border-width: 3px;
+    border-color: grey;
+    background-color: lightslategray;
+   
+    
+}
