@@ -4,7 +4,7 @@
     var guess;
     var wordArray;
     var location;
-    var wordLength;
+    var wordLength = [];
     var word;
     var discard = [];
    
@@ -15,7 +15,6 @@ window.onload = function start() {
     word = wordBank[randomIndex];
     console.log(word);
     wordArray = word.split("");
-    wordLength = [];
     for (var i = wordLength.length; i < wordArray.length; i++) {
         wordLength.push("_");
     }
@@ -23,7 +22,7 @@ window.onload = function start() {
 
     
 document.getElementById("wordMain").innerHTML = wordLength;
-for (var i = 65; i < 91; i++) {
+
 
     document.onkeyup = function(event) {
         guess = event.key;
@@ -32,15 +31,16 @@ for (var i = 65; i < 91; i++) {
 
     };
     
-    console.log("thisis: " + wordLength)
+   
     
-};
+
 
 
 
 function letterCheck() {
-    console.log("2nd round: " + word)
-  
+    var str = word;
+    var low = str.toLowerCase();
+    wordArray = low.split("");
    console.log(wordArray);
     let idx = wordArray.indexOf(guess);
     console.log(idx);
@@ -48,21 +48,15 @@ function letterCheck() {
 if (idx === -1) {
     life--
     document.getElementById("guesses").innerHTML = life;
-    var str = word;
-    var low = str.toLowerCase();
-    wordArray = low.split("");
     discard.push(guess)
     document.getElementById("lettersG").innerHTML = discard;
     
 }
-while (idx != -1) {
-   wordLength.push(idx);
-    idx = arraylow.indexOf(guess, idx + 1);
+else {
     
-
- for (let i = 0; i < location.length; i++) {
-            wordLength[location[i]] = wordArray[location[i]];
-            document.getElementById("wordMain").innerHTML = guess;};
+   wordLength[idx] = guess;
+   document.getElementById("wordMain").innerHTML = wordLength;
+   
 } ;  
 
 
